@@ -5,10 +5,12 @@ phases:
     runtime-versions:
       nodejs: 20
     commands:
+      - echo "Installing Serverless Framework"
       - npm install --silent --no-progress -g serverless
 
   build:
     commands:
-      - echo "Starting serverless deployment"
+      - echo "Starting Serverless deployment"
+      - export SERVERLESS_ACCESS_KEY=$SLS_ACCESS_KEY
       - serverless deploy --stage $ENVIRONMENT --region $REGION --conceal --verbose
       - echo "Finished deployment"
