@@ -8,6 +8,11 @@ phases:
       - echo "Installing Serverless Framework"
       - npm install --silent --no-progress -g serverless
 
+  pre_build:
+    commands:
+      - echo "Installing project dependencies"
+      - npm install
+
   build:
     commands:
       - echo "Starting Serverless deployment"
